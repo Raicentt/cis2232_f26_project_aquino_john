@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: headerFragment}"></head>
+<body>
+<nav th:replace="~{fragments/navHeader :: navbar}"></nav>
+<main>
+    <h1>About the project</h1>
+    <p>The Volleyball Score App will record completed best-of-five volleyball matches, where the first team to win three sets wins.</p>
+    <p>Planned results include the match winner, set win percentage, point share percentage, and each team's service aces per set.</p>
+    <h2>Project group</h2>
+    <ul><li>BA / Business Client: Aidan Chappelle</li>
+        <li>Developer: John Raicent Aquino</li>
+        <li>Project Manager / QA: Connor Chappelle</li></ul>
+</main>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/*
+    Work Item 2: BA base color is Pastel Green (#77DD77).
+    Author: John Aquino
+*/
+:root {
+    --base-color: #77DD77;
+    --text-color: #18351f;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background: #f7fbf7;
+}
+.nav, .ftr {
+    background-color: var(--base-color);
+    padding: 1.25rem;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+a {
+    color: #18351f;
+}
+.nav a {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+main {
+    max-width: 960px;
+    min-height: 70vh;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+h1 {
+    border-bottom: 5px solid var(--base-color);
+    padding-bottom: 1rem;
+}
+p, li {
+    line-height: 1.7;
+}
+.ftr {
+    text-align: center;
+}
