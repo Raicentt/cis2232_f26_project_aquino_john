@@ -78,7 +78,7 @@ Percentages and averages will be displayed to two decimal places. Calculated res
 - Combined points scored must be greater than zero.
 - Each team's service aces must not exceed that team's points scored.
 
-## Report Details
+## Report Details (INCOMPLETE)
 
 ### Team Match Performance Report
 
@@ -91,7 +91,5 @@ Matches will be displayed in date order. Percentages and averages will be displa
 A grouped bar chart will compare the team's points with the opponent's points for each match. The horizontal axis will show the matches, identified by date and opponent, and the vertical axis will show total points scored.
 
 The report will retrieve records using a DAO class with JDBC rather than Spring Data JPA.
-
-The results will also be saved to a text file in C:\cis2232\. The filename will contain the report type and current date/time, such as TeamMatchPerformance202610191430.txt. The file will include the selected criteria and report results.
 
 If no matches are found, the report will display and save a message indicating that no matches met the selected criteria.
