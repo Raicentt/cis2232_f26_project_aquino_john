@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: headerFragment}"></head>
+<body>
+<nav th:replace="~{fragments/navHeader :: navbar}"></nav>
+<main>
+<h1>Reports</h1>
+<h2><a th:href="@{/report/team}">Team Match Performance Report</a></h2>
+<p>Review a tracked team's matches by date, compare scoring, and save a text report.</p>
+</main>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+</body>
+</html>

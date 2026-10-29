@@ -20,7 +20,7 @@
     <artifactId>volleyball_score_app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Volleyball Score App</name>
-    <description>Volleyball Score App - Sprint 1</description>
+    <description>Volleyball Score App - Sprint 2</description>
     <packaging>jar</packaging>
 
     <!-- =================================================================== -->
@@ -45,6 +45,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- JDBC driver for Sprint 2 reports -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
 
     <!-- =================================================================== -->

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: headerFragment}"></head>
+<body>
+<nav th:replace="~{fragments/navHeader :: navbar}"></nav>
+<main>
+<h1>Team Match Performance Report</h1>
+<form th:action="@{/report/team/submit}" th:object="${reportInput}" method="post" class="report-form">
+    <div><label for="name">Tracked team name</label><input id="name" th:field="*{name}" maxlength="100" required></div>
+    <div><label for="startDate">Start date</label><input id="startDate" type="date" th:field="*{startDate}" min="1000-01-01" max="9999-12-31" required></div>
+    <div><label for="endDate">End date</label><input id="endDate" type="date" th:field="*{endDate}" min="1000-01-01" max="9999-12-31" required></div>
+    <button type="submit">Generate Report</button>
+</form>
+<p class="hint">Use the tracked team's full name. Both boundary dates are included.</p>
+<p th:if="${error != null}" th:text="${error}" class="error" role="alert"></p>
+<section th:if="${reportReady == true}">
+    <h2>Report results</h2>
+    <p>Team: <strong th:text="${reportInput.name}"></strong> | Dates: <span th:text="${reportInput.startDate}"></span> to <span th:text="${reportInput.endDate}"></span></p>
+    <p>Generated: <span th:text="${generated}"></span> | Matches: <strong th:text="${#lists.size(reportInput.volleyballMatches)}"></strong></p>
+    <p th:if="${savedFile != null}" class="success">Text report saved: <span th:text="${savedFile}"></span></p>
+    <p th:if="${fileError != null}" th:text="${fileError}" class="error" role="alert"></p>
+    <p th:if="${#lists.isEmpty(reportInput.volleyballMatches)}">No matches found for the selected team and date range.</p>
+    <div th:unless="${#lists.isEmpty(reportInput.volleyballMatches)}">
+        <h3>Points by match</h3>
+        <p><span class="legend team"></span> Team points <span class="legend opponent"></span> Opponent points</p>
+        <div class="chart-scroll"><svg id="matchChart" role="img" aria-label="Team and opponent points by match"></svg></div>
+        <noscript><p>Enable JavaScript to view the chart. All point values are in the table below.</p></noscript>
+        <h3>Match details and statistics</h3>
+        <div class="table-scroll" tabindex="0" aria-label="Scrollable match report">
+        <table><caption>Completed matches for the selected tracked team</caption><thead><tr>
+<th scope="col">ID</th><th scope="col">Date</th><th scope="col">Team</th><th scope="col">Opponent</th><th scope="col">Sets played</th><th scope="col">Team sets</th><th scope="col">Opponent sets</th><th scope="col">Team points</th><th scope="col">Opponent points</th><th scope="col">Total points</th><th scope="col">Team aces</th><th scope="col">Opponent aces</th><th scope="col">Winner</th><th scope="col">Set win %</th><th scope="col">Point share %</th><th scope="col">Team aces/set</th><th scope="col">Opponent aces/set</th></tr></thead><tbody>
+<tr th:each="match : ${reportInput.volleyballMatches}" class="match-row"
+    th:attr="data-date=${match.matchDate},data-opponent=${match.opponentName},data-id=${match.id},data-team-points=${match.teamPointsScored},data-opponent-points=${match.opponentPointsScored}">
+<td th:text="${match.id}"></td>
+<td th:text="${match.matchDate}"></td>
+<td th:text="${match.teamName}"></td>
+<td th:text="${match.opponentName}"></td>
+<td th:text="${match.setsPlayed}"></td>
+<td th:text="${match.teamSetsWon}"></td>
+<td th:text="${match.opponentSetsWon}"></td>
+<td th:text="${match.teamPointsScored}"></td>
+<td th:text="${match.opponentPointsScored}"></td>
+<td th:text="${match.totalPoints}"></td>
+<td th:text="${match.teamServiceAces}"></td>
+<td th:text="${match.opponentServiceAces}"></td>
+<td th:text="${match.winnerName}"></td>
+<td th:text="${#numbers.formatDecimal(match.setWinPercentage, 1, 'NONE', 2, 'POINT')}"></td>
+<td th:text="${#numbers.formatDecimal(match.pointSharePercentage, 1, 'NONE', 2, 'POINT')}"></td>
+<td th:text="${#numbers.formatDecimal(match.teamAcesPerSet, 1, 'NONE', 2, 'POINT')}"></td>
+<td th:text="${#numbers.formatDecimal(match.opponentAcesPerSet, 1, 'NONE', 2, 'POINT')}"></td>
+</tr></tbody></table></div></div></section>
+</main>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script th:src="@{/js/reportChart.js}" src="/js/reportChart.js" defer></script>
+</body>
+</html>

@@ -1,8 +1,7 @@
 -- Volleyball Score App | Work Item 4
 -- Author: John Aquino
 
-DROP DATABASE IF EXISTS cis2232_volleyball_scorer;
-CREATE DATABASE cis2232_volleyball_scorer;
+CREATE DATABASE IF NOT EXISTS cis2232_volleyball_scorer;
 USE cis2232_volleyball_scorer;
 
 CREATE TABLE IF NOT EXISTS VolleyballMatch (

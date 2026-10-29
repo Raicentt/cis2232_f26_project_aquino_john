@@ -3,7 +3,11 @@
 <body>
 <nav th:fragment="navbar" class="nav" aria-label="Main navigation">
     <strong th:text="#{application.name}">Volleyball Score App</strong>
-    <div><a th:href="@{/}">Home</a><a th:href="@{/about}">About</a></div>
+    <div>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/report}">Reports</a>
+        <a th:href="@{/about}">About</a>
+    </div>
 </nav>
 </body>
 </html>

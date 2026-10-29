@@ -49,3 +49,21 @@ p, li {
 .ftr {
     text-align: center;
 }
+
+/* Sprint 2 report form, results and chart */
+.report-form { display: flex; flex-wrap: wrap; gap: 1rem; align-items: end; }
+.report-form label { display: block; margin-bottom: .4rem; font-weight: bold; }
+.report-form input { padding: .7rem; border: 1px solid #738777; border-radius: 4px; max-width: 100%; }
+button { background: var(--base-color); color: var(--text-color); border: 1px solid #305d37; border-radius: 4px; padding: .75rem 1rem; cursor: pointer; font-weight: bold; }
+.error { background: #fff0ee; color: #8b2018; padding: 1rem; border-left: 4px solid #aa3025; }
+.success { background: #e1f4e2; padding: 1rem; overflow-wrap: anywhere; }
+.hint { color: #4b6050; }
+.table-scroll, .chart-scroll { overflow-x: auto; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; background: white; }
+caption { text-align: left; margin-bottom: .5rem; }
+th, td { padding: .65rem; border: 1px solid #cad8cb; text-align: left; white-space: nowrap; }
+th { background: #d8f2d8; }
+tr:nth-child(even) { background: #f0f7f0; }
+.legend { display: inline-block; width: 14px; height: 14px; margin-left: .75rem; }
+.team { background: #77dd77; } .opponent { background: #506b9d; }
+#matchChart { display: block; background: white; }
