@@ -4,7 +4,7 @@
 
 ## Project Description
 
-The Volleyball Score App keeps track of the scores of two volleyball players across five games. For each match, it records the match date, both players’ names, and each player’s score in every game.
+The Volleyball Score App tracks completed best-of-five volleyball matches between two teams. Each match records the team names, match date, sets played, sets won, total points scored, and service aces. The application determines the winner and calculates performance statistics. Users can generate a team performance report for a selected date range, view a points comparison chart, and save the report results to a text file.
 
 ## Project Team
 
@@ -78,18 +78,16 @@ Percentages and averages will be displayed to two decimal places. Calculated res
 - Combined points scored must be greater than zero.
 - Each team's service aces must not exceed that team's points scored.
 
-## Report Details (INCOMPLETE)
+## Report Details
 
 ### Team Match Performance Report
 
-Enter a team name and a start and end date. The report will return matches where the entered name matches the tracked team name and the match date falls within the selected date range, including both dates. Team-name matching will ignore letter case and surrounding spaces.
+Enter a team name and a start and end date. The report returns matches for that tracked team within the selected date range, including both dates. Team-name matching ignores letter case and surrounding spaces.
 
-The report results will display the match date, team name, opponent name, sets played, sets won by each team, points scored by each team, service aces recorded by each team, and match winner. It will also show the tracked team's set win percentage, point share percentage, and each team's average service aces per set.
+Results show the match date, team and opponent names, sets played, sets won, points scored, service aces, and winner. They also include the team's set win percentage, point share percentage, and each team's average aces per set. Matches appear in date order.
 
-Matches will be displayed in date order. Percentages and averages will be displayed to two decimal places.
+A grouped bar chart compares both teams' points for each match.
 
-A grouped bar chart will compare the team's points with the opponent's points for each match. The horizontal axis will show the matches, identified by date and opponent, and the vertical axis will show total points scored.
+The report uses a DAO class with JDBC and saves the results to a text file in C:\cis2232\reports\. Filenames use MatchReport followed by the creation date and time, such as MatchReport20261029093045.txt.
 
-The report will retrieve records using a DAO class with JDBC rather than Spring Data JPA.
-
-If no matches are found, the report will display and save a message indicating that no matches met the selected criteria.
+If no matches are found, a message is displayed and saved to the report file.
