@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$PROJECT_DIR$/src/main/java/ca/hccis/volleyball/dao/VolleyballMatchDAO.java" value="634b1dc9-9eb5-44bb-bd65-bc43662f0224" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/mysql/sampleReportData.sql" value="6e183cc5-44e7-485d-bb7f-d04e0407981c" />
   </component>
 </project>
